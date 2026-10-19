@@ -1,0 +1,256 @@
+/* ==========================================================================
+   DevPilot Modern Developer Tool Design System
+   Obsidian Black #111113 & Charcoal #292529 with Dusty Blush Pink #F2B8C6 Accents
+   ========================================================================== */
+
+:root {
+  --bg-obsidian: #111113;
+  --bg-panel: #292529;
+  --bg-panel-hover: #322D32;
+  --bg-panel-subtle: #1F1B1F;
+  --bg-surface: #1B181C;
+  --bg-code: #161417;
+
+  --border-subtle: #383238;
+  --border-strong: #4A424A;
+  --border-focus: #F2B8C6;
+
+  --text-primary: #F5F1F2;
+  --text-secondary: #A69DA4;
+  --text-muted: #736A72;
+
+  /* Accent: Dusty Blush Pink (Used with disciplined restraint) */
+  --accent-pink: #F2B8C6;
+  --accent-pink-hover: #F8CAD5;
+  --accent-pink-dim: rgba(242, 184, 198, 0.12);
+  --accent-pink-border: rgba(242, 184, 198, 0.28);
+  --accent-pink-glow: rgba(242, 184, 198, 0.22);
+
+  /* Functional Status Colors (Clean developer tones) */
+  --status-error: #FF6B6B;
+  --status-error-bg: rgba(255, 107, 107, 0.12);
+  --status-error-border: rgba(255, 107, 107, 0.3);
+
+  --status-warning: #FFB74D;
+  --status-warning-bg: rgba(255, 183, 77, 0.12);
+  --status-warning-border: rgba(255, 183, 77, 0.3);
+
+  --status-info: #64B5F6;
+  --status-info-bg: rgba(100, 181, 246, 0.12);
+  --status-info-border: rgba(100, 181, 246, 0.3);
+
+  --status-success: #69F0AE;
+  --status-success-bg: rgba(105, 240, 174, 0.12);
+  --status-success-border: rgba(105, 240, 174, 0.3);
+
+  /* Diff colors */
+  --diff-add-bg: rgba(105, 240, 174, 0.14);
+  --diff-add-text: #B9F6CA;
+  --diff-del-bg: rgba(255, 107, 107, 0.14);
+  --diff-del-text: #FF8A80;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-mono: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* Base Buttons */
+button {
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.18s ease-in-out;
+}
+
+/* Primary Button with Accent Pink */
+.btn-primary {
+  background-color: var(--accent-pink);
+  color: #111113;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--accent-pink-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--accent-pink-glow);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Secondary Button with Charcoal */
+.btn-secondary {
+  background-color: var(--bg-panel);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-panel-hover);
+  border-color: var(--border-strong);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Danger Button */
+.btn-danger {
+  background-color: var(--status-error-bg);
+  color: var(--status-error);
+  border: 1px solid var(--status-error-border);
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: rgba(255, 107, 107, 0.22);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-ghost:hover {
+  background-color: var(--bg-panel);
+  color: var(--text-primary);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-error {
+  background: var(--status-error-bg);
+  color: var(--status-error);
+  border: 1px solid var(--status-error-border);
+}
+
+.badge-warning {
+  background: var(--status-warning-bg);
+  color: var(--status-warning);
+  border: 1px solid var(--status-warning-border);
+}
+
+.badge-info {
+  background: var(--status-info-bg);
+  color: var(--status-info);
+  border: 1px solid var(--status-info-border);
+}
+
+.badge-success {
+  background: var(--status-success-bg);
+  color: var(--status-success);
+  border: 1px solid var(--status-success-border);
+}
+
+.badge-pink {
+  background: var(--accent-pink-dim);
+  color: var(--accent-pink);
+  border: 1px solid var(--accent-pink-border);
+}
+
+/* Code styling */
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.22s ease-out forwards;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(242, 184, 198, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(242, 184, 198, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(242, 184, 198, 0); }
+}
+
+.pulse-pink {
+  animation: pulseGlow 2s infinite;
+}
